@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
-using Taskify.API.Data;
+using Taskify.API.Data.Tasks;
 using Taskify.API.DTOs;
 using Taskify.API.Helpers;
 using Taskify.API.Models;
@@ -17,9 +17,9 @@ namespace Taskify.API.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        private readonly IDatingRepository _repo;
+        private readonly ITaskRepository _repo;
         private readonly IMapper _mapper;
-        public UsersController(IDatingRepository repo, IMapper mapper)
+        public UsersController(ITaskRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;

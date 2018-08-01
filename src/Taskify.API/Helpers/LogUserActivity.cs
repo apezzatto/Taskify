@@ -1,7 +1,7 @@
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Taskify.API.Data;
+using Taskify.API.Data.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +14,7 @@ namespace Taskify.API.Helpers
             var resultContext = await next();
 
             var userId = int.Parse(resultContext.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var repo = resultContext.HttpContext.RequestServices.GetService<IDatingRepository>();
+            var repo = resultContext.HttpContext.RequestServices.GetService<ITaskRepository>();
             var user = await repo.GetUser(userId);
             user.LastActive = DateTime.Now;
             await repo.SaveAll();

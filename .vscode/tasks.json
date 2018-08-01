@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Taskify.API/Taskify.API.csproj"
+                "${workspaceFolder}/src/Taskify.API/Taskify.API.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

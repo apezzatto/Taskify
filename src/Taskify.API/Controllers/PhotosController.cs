@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Taskify.API.Data;
+using Taskify.API.Data.Tasks;
 using Taskify.API.DTOs;
 using Taskify.API.Helpers;
 using Taskify.API.Models;
@@ -18,12 +18,12 @@ namespace Taskify.API.Controllers
     [Route("api/users/{userId}/photos")]
     public class PhotosController : Controller
     {
-        private readonly IDatingRepository _repository;
+        private readonly ITaskRepository _repository;
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
 
-        public PhotosController(IDatingRepository repository, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig)
+        public PhotosController(ITaskRepository repository, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _cloudinaryConfig = cloudinaryConfig;
             _mapper = mapper;

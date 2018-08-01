@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Taskify.API.Data;
+using Taskify.API.Data.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +19,7 @@ using System.Net;
 using Taskify.API.Helpers;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Taskify.API.Data;
 
 namespace Taskify.API
 {
@@ -43,7 +44,7 @@ namespace Taskify.API
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddTransient<IDatingRepository, DatingRepository>();
+            services.AddTransient<ITaskRepository, DatingRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -72,7 +73,7 @@ namespace Taskify.API
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddTransient<IDatingRepository, DatingRepository>();
+            services.AddTransient<ITaskRepository, DatingRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -113,7 +114,7 @@ namespace Taskify.API
                 });
             }
 
-            seeder.SeedUsers();
+            //seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseAuthentication();
             app.UseDefaultFiles(); //use all the default structure (wwwroot, index.html, etc)

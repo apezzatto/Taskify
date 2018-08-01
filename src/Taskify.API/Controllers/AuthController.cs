@@ -4,12 +4,12 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Taskify.API.Data;
 using Taskify.API.DTOs;
 using Taskify.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Taskify.API.Data;
 
 namespace Taskify.API.Controllers
 {

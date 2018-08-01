@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Taskify.API.Helpers;
 using Taskify.API.Models;
 
-namespace Taskify.API.Data
+namespace Taskify.API.Data.Tasks
 {
-    public interface IDatingRepository
+    public interface ITaskRepository
     {
          void Add<T>(T entity) where T: class;
          void Delete<T>(T entity) where T: class;

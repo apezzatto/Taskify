@@ -1,5 +1,5 @@
 using AutoMapper;
-using Taskify.API.Data;
+using Taskify.API.Data.Tasks;
 using Taskify.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +17,9 @@ namespace Taskify.API.Controllers
     [Route("api/users/{userId}/[controller]")]
     public class MessagesController : Controller
     {
-        private readonly IDatingRepository _repository;
+        private readonly ITaskRepository _repository;
         private readonly IMapper _mapper;
-        public MessagesController(IDatingRepository repository, IMapper mapper)
+        public MessagesController(ITaskRepository repository, IMapper mapper)
         {
             _mapper = mapper;
             _repository = repository;

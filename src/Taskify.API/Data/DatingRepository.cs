@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Taskify.API.Helpers;
 using Taskify.API.Models;
 using Microsoft.EntityFrameworkCore;
+using Taskify.API.Data.Tasks;
 
 namespace Taskify.API.Data
 {
-    public class DatingRepository : IDatingRepository
+    public class DatingRepository : ITaskRepository
     {
         private readonly DataContext _context;
         public DatingRepository(DataContext context)

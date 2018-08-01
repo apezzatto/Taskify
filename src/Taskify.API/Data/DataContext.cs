@@ -1,5 +1,6 @@
 using Taskify.API.Models;
 using Microsoft.EntityFrameworkCore;
+using Taskify.API.Models.Tasks;
 
 namespace Taskify.API.Data
 {
@@ -11,6 +12,8 @@ namespace Taskify.API.Data
         public DbSet<Photo> Photos {get; set;}
         public DbSet<Like> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<MowLawn> TasksMowLawn { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -38,6 +41,30 @@ namespace Taskify.API.Data
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessageReceived)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Task>()
+                .HasKey(k => k.Id);
+
+            builder.Entity<Task>()
+                .Property(i => i.AdditionalInformation)
+                .IsRequired(false);
+
+            builder.Entity<Task>()
+                .HasOne(u => u.Client)
+                .WithMany(u => u.Clients)
+                .HasForeignKey(u => u.ClientId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Task>()
+                .HasOne(u => u.Worker)
+                .WithMany(u => u.Workers)
+                .HasForeignKey(u => u.WorkerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<MowLawn>()
+                .ToTable("Tasks.MowLawn")
+                .HasKey(k => k.Id);
+
         }
     }
 }

@@ -57,7 +57,7 @@ export function jwtOptionsFactory() {
       return localStorage.getItem('token');
     },
     whitelistedDomains: ['localhost:5000', /^null$/]
-  }
+  };
 }
 
 @NgModule({

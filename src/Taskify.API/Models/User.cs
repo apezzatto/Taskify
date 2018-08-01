@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Taskify.API.Models.Tasks;
 
 namespace Taskify.API.Models
 {
@@ -26,6 +27,8 @@ namespace Taskify.API.Models
         public ICollection<Like> Likee { get; set; }
         public ICollection<Message> MessageSent { get; set; }
         public ICollection<Message> MessageReceived { get; set; }
+        public ICollection<Task> Clients { get; set; }
+        public ICollection<Task> Workers { get; set; }
 
         public User(){
             Photos = new Collection<Photo>();

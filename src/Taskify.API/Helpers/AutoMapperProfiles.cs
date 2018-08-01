@@ -1,7 +1,9 @@
 using System.Linq;
 using AutoMapper;
 using Taskify.API.DTOs;
+using Taskify.API.DTOs.Tasks;
 using Taskify.API.Models;
+using Taskify.API.Models.Tasks;
 
 namespace Taskify.API.Helpers
 {
@@ -36,6 +38,10 @@ namespace Taskify.API.Helpers
                     opt.MapFrom(u => u.Sender.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(m => m.RecipientPhotoUrl, opt => 
                     opt.MapFrom(u => u.Recipient.Photos.FirstOrDefault(p => p.IsMain).Url));
+
+            CreateMap<TaskMowLawnForCreationDto, Task>();
+            CreateMap<TaskMowLawnForCreationDto, MowLawn>();
+
         }
     }
 }
