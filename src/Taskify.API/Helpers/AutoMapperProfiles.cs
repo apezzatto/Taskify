@@ -41,7 +41,7 @@ namespace Taskify.API.Helpers
 
             CreateMap<TaskMowLawnForCreationDto, Task>();
             CreateMap<TaskMowLawnForCreationDto, MowLawn>();
-
+            CreateMap<TaskType, TaskTypeToReturnDto>();
         }
     }
 }

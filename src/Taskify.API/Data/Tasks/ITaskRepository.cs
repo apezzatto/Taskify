@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Taskify.API.Helpers;
+using Taskify.API.Models.Tasks;
 using Taskify.API.Models;
 
 namespace Taskify.API.Data.Tasks
@@ -18,5 +19,6 @@ namespace Taskify.API.Data.Tasks
          Task<Message> GetMessage(int id);
          Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams);
          Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId);
+         Task<IEnumerable<TaskType>> GetTaskTypes();
     }
 }

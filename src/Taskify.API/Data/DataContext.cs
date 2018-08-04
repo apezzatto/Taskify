@@ -14,6 +14,7 @@ namespace Taskify.API.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<MowLawn> TasksMowLawn { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskType> TaskTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -65,6 +66,9 @@ namespace Taskify.API.Data
                 .ToTable("Tasks.MowLawn")
                 .HasKey(k => k.Id);
 
+            builder.Entity<TaskType>()
+                .ToTable("Tasks.TaskType")
+                .HasKey(k => k.Id);
         }
     }
 }

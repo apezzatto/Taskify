@@ -114,7 +114,7 @@ namespace Taskify.API
                 });
             }
 
-            //seeder.SeedUsers();
+            seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseAuthentication();
             app.UseDefaultFiles(); //use all the default structure (wwwroot, index.html, etc)

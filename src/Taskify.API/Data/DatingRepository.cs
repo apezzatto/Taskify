@@ -6,6 +6,7 @@ using Taskify.API.Helpers;
 using Taskify.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Taskify.API.Data.Tasks;
+using Taskify.API.Models.Tasks;
 
 namespace Taskify.API.Data
 {
@@ -146,6 +147,11 @@ namespace Taskify.API.Data
                 .ToListAsync();
 
                 return messages;
+        }
+
+        public async Task<IEnumerable<TaskType>> GetTaskTypes()
+        {
+            return await _context.TaskTypes.ToListAsync();
         }
     }
 }

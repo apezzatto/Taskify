@@ -4,7 +4,7 @@ namespace Taskify.API.Models.Tasks
 {
     public class MowLawn
     {
-        public Guid Id {get; set;}
+        public Guid Id {get; protected set;}
         public int? BackyardWidth {get;set;}
         public int? BackyardLength {get;set;}
         public int? FrontyardWidth {get;set;}

@@ -40,6 +40,8 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { environment } from '../environments/environment';
+import { MowLawnComponent } from './tasks/mow-lawn/mow-lawn.component';
+import { TaskComponent } from './tasks/task.component';
 
 export function getAccessToken(): string {
   return localStorage.getItem('token');
@@ -73,6 +75,8 @@ export function jwtOptionsFactory() {
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    TaskComponent,
+    MowLawnComponent,
     TimeAgoPipe,
     MemberMessagesComponent
 ],

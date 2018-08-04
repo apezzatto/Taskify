@@ -10,6 +10,8 @@ namespace Taskify.API.Models.Tasks
         public DateTime BeginsAt {get;set;}
         public DateTime? EndedAt {get;set;}
         public string AdditionalInformation {get; set;}
+        public TaskType TaskType {get;set;}
+        public int TaskTypeId {get;set;}
         public User Client {get;set;}
         public int ClientId {get;set;}
         public User Worker {get; set;}
