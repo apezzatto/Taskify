@@ -11,9 +11,14 @@ export class TaskService {
   baseUrl = environment.apiUrl;
 constructor(private authHttp: HttpClient) { }
 
-getTasksType(){
+getTaskTypes() {
   return this.authHttp
-            .get<TaskType[]>(this.baseUrl + 'users')
+            .get<TaskType[]>(this.baseUrl + 'helper/TaskTypes/List', { observe: 'response'})
+              .pipe(
+                map(response => {
+                  return response.body;
+                })
+              );
 }
 
 }

@@ -13,6 +13,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/message.resolver';
 import { TaskComponent } from './tasks/task.component';
+import { TaskResolver } from './_resolvers/tasks/task.resolver';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},

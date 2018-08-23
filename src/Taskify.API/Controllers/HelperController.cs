@@ -21,8 +21,8 @@ namespace Taskify.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("TaskTypes")]
-        public async Task<IActionResult> GetTaskTypes()
+        [HttpGet("tasktypes/list")]
+        public async Task<IActionResult> ListTaskTypes()
         {
             var tasksTypes = await _repository.GetTaskTypes();
 

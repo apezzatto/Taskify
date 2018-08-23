@@ -42,6 +42,8 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { environment } from '../environments/environment';
 import { MowLawnComponent } from './tasks/mow-lawn/mow-lawn.component';
 import { TaskComponent } from './tasks/task.component';
+import { TaskResolver } from './_resolvers/tasks/task.resolver';
+import { TaskService } from './_services/tasks/task.service';
 
 export function getAccessToken(): string {
   return localStorage.getItem('token');
@@ -106,9 +108,11 @@ export function jwtOptionsFactory() {
     AlertifyService,
     AuthGuard,
     UserService,
+    TaskService,
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    TaskResolver,
     PreventUnsavedChanges,
     ListsResolver,
     MessagesResolver,

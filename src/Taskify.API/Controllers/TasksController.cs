@@ -35,6 +35,9 @@ namespace Taskify.API.Controllers
             if (userId != taskForCreationDto.ClientId)
                 return Unauthorized();
 
+            if (int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) != taskForCreationDto.ClientId)
+                return Unauthorized();
+
             var task = _mapper.Map<Taskify.API.Models.Tasks.Task>(taskForCreationDto);
             var mowLawn = _mapper.Map<MowLawn>(taskForCreationDto);
 
