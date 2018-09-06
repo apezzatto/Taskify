@@ -6,4 +6,18 @@ img {
     max-height: 50px;
     border: 2px solid white;
     display: inline;
+}   
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #2FA4E7;
+    background-color: white;
+}
+
+.navbar-brand:hover {
+    background-color: #2FA4E7;
+    color: white;
 }
